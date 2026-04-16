@@ -1,75 +1,409 @@
 :root {
-    --primary: #3498db;
-    --success: #2ecc71;
-    --danger: #e74c3c;
-    --dark: #2c3e50;
-    --light: #ecf0f1;
+    /* Tema Bersih: Biru, Putih & Abu-abu */
+    --primary: #1976d2;
+    --primary-hover: #1565c0;
+    --warning: #f57c00;
+    /* Edit */
+    --warning-hover: #ef6c00;
+    --danger: #d32f2f;
+    /* Hapus */
+    --danger-hover: #c62828;
+    --dark: #37474f;
+    --light-bg: #f5f7fa;
     --white: #ffffff;
-    --gray: #95a5a6;
+    --gray: #9e9e9e;
+    --border: #cfd8dc;
+    --text-color: #333333;
 }
 
 * {
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    /* Font biasa default */
     margin: 0;
     padding: 0;
 }
 
-body { background-color: #f4f6f8; color: var(--dark); }
-
-/* Utility */
-.w-100 { width: 100%; }
-.mt-10 { margin-top: 10px; }
-.text-danger { color: var(--danger); }
-.row { display: flex; flex-wrap: wrap; gap: 15px; }
-.col-8 { flex: 8; }
-.col-4 { flex: 4; }
-.col-3 { flex: 1; }
-
-.btn {
-    padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; color: var(--white); font-weight: bold;
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.5;
 }
-.btn-primary { background-color: var(--primary); }
-.btn-success { background-color: var(--success); }
-.btn-danger { background-color: var(--danger); }
-.btn:hover { opacity: 0.9; }
 
-.card { background: var(--white); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+/* Utilities */
+.w-100 {
+    width: 100%;
+}
 
-input { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.text-danger {
+    color: var(--danger);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Wrapper Container */
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    color: var(--dark);
+}
+
+/* Flex Grid System Mendasar */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+/* Default Desktop Widths */
+.col-8 {
+    flex: 1 1 calc(66.666% - 20px);
+}
+
+.col-4 {
+    flex: 1 1 calc(33.333% - 20px);
+}
+
+.col-3 {
+    flex: 1 1 calc(25% - 20px);
+}
+
+/* Card sederhana dengan box/shadow ringan */
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--dark);
+    font-size: 18px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Edit (Yellow/Orange) */
+.btn-warning {
+    background-color: var(--warning);
+}
+
+.btn-warning:hover {
+    background-color: var(--warning-hover);
+}
+
+/* Delete (Red) */
+.btn-danger {
+    background-color: var(--danger);
+}
+
+.btn-danger:hover {
+    background-color: var(--danger-hover);
+}
+
+/* Tanpa ubah Javascript: Target btn-primary di dalam baris table sebagai Edit */
+#tableProdukBody .btn:first-child {
+    background-color: var(--warning);
+    margin-right: 5px;
+    margin-bottom: 5px;
+    /* jaga-jaga kalau HP dibungkus */
+}
+
+#tableProdukBody .btn:first-child:hover {
+    background-color: var(--warning-hover);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--dark);
+    font-size: 14px;
+}
+
+input {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fafafa;
+    transition: 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: var(--white);
+}
 
 /* Login Page */
-.login-body { display: flex; justify-content: center; align-items: center; height: 100vh; }
-.login-container { background: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 300px; text-align: center; }
-.form-group { margin-bottom: 15px; text-align: left; }
-.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-.form-group input { width: 100%; }
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-container {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: var(--dark);
+}
 
 /* Navbar */
-.navbar { background-color: var(--dark); color: var(--white); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
-.nav-brand { font-size: 1.5em; font-weight: bold; }
-.nav-btn { background: none; border: none; color: var(--white); padding: 8px 15px; cursor: pointer; font-size: 1em; border-radius: 5px; }
-.nav-btn.active { background-color: rgba(255,255,255,0.2); }
-.nav-btn:hover { background-color: rgba(255,255,255,0.1); }
+.navbar {
+    background-color: var(--dark);
+    color: var(--white);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-/* Layout */
-.container { padding: 20px; max-width: 1200px; margin: 0 auto; }
-.tab-content { display: none; }
-.tab-content.active { display: block; }
+.nav-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+}
 
-/* Table */
-.table { width: 100%; border-collapse: collapse; }
-.table th, .table td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
 
-/* Product Grid (Kasir) */
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 15px; }
-.product-card { background: var(--light); padding: 15px; text-align: center; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: 0.2s; }
-.product-card:hover { border-color: var(--primary); }
-.product-card h4 { margin-bottom: 5px; }
+.nav-btn {
+    background: none;
+    border: none;
+    color: #cfd8dc;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: 0.2s;
+}
 
-/* Cart */
-.cart-items { min-height: 200px; max-height: 400px; overflow-y: auto; margin-top: 15px; }
-.cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding: 10px 0; }
-.cart-item-info { flex: 1; }
-.cart-total { border-top: 2px solid var(--dark); margin-top: 15px; padding-top: 10px; text-align: right; }
-.qty-btn { background: var(--gray); border: none; color: white; padding: 2px 8px; cursor: pointer; border-radius: 3px;}
+.nav-btn.active,
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+}
+
+/* Tab Switching */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Tabel yang Rapi & Mendukung Scroll HP */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    /* Kunci rahasia Horizontal Scroll di Layar HP */
+    -webkit-overflow-scrolling: touch;
+}
+
+.table {
+    width: 100%;
+    min-width: 600px;
+    /* Minimal tidak hancur di layar kecil */
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    border: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #e0e0e0;
+    color: var(--dark);
+    text-align: left;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Daftar Produk (Grid Murni) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.product-card {
+    background: var(--white);
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: 0.2s;
+}
+
+.product-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h4 {
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.product-card p {
+    color: var(--primary);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.product-card small {
+    color: var(--gray);
+    font-size: 13px;
+}
+
+/* Keranjang Belanja */
+.cart-items {
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+}
+
+.cart-item-info strong {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.cart-total {
+    border-top: 2px solid var(--dark);
+    margin-top: 15px;
+    padding-top: 15px;
+    text-align: right;
+    font-size: 18px;
+}
+
+.qty-btn {
+    background: var(--dark);
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+.qty-btn:hover {
+    background: #546e7a;
+}
+
+/* =========== Responsiveness: Mobile First Overrides =========== */
+@media (max-width: 768px) {
+
+    /* Navbar susun menurun & Penuh layar */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .nav-brand {
+        margin-bottom: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Layout grid stack vertikal di HP */
+    .col-8,
+    .col-4,
+    .col-3 {
+        flex: 1 1 100%;
+    }
+
+    /* Supaya tombol tambah nyatu rapih ga aneh letaknya */
+    form.row.align-end {
+        align-items: stretch;
+    }
+}

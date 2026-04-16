@@ -10,36 +10,38 @@
     <nav class="navbar">
         <div class="nav-brand">POS Sederhana</div>
         <div class="nav-links">
-            <button class="nav-btn active" onclick="showTab('tab-kasir')">Kasir</button>
+            <button class="nav-btn active" onclick="showTab('tab-kasir')">Dashboard</button>
             <button class="nav-btn" onclick="showTab('tab-produk')">Produk</button>
-            <button class="nav-btn" onclick="showTab('tab-riwayat')">Riwayat</button>
+            <button class="nav-btn" onclick="showTab('tab-riwayat')">Transaksi</button>
             <button class="nav-btn btn-danger" onclick="logout()">Logout</button>
         </div>
     </nav>
 
     <div class="container main-content">
-        <!-- TAB KASIR -->
+        <!-- TAB KASIR (DASHBOARD) -->
         <div id="tab-kasir" class="tab-content active">
-            <h2>Transaksi Kasir</h2>
+            <div class="section-header">
+                <h2>Dashboard Kasir</h2>
+            </div>
             <div class="row">
                 <div class="col-8">
-                    <div class="card">
-                        <h3>Pilih Produk</h3>
+                    <div class="card mb-20">
+                        <h3>Daftar Produk</h3>
                         <div class="product-grid" id="posProductList">
                             <!-- Produk akan dirender disini -->
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="card">
-                        <h3>Keranjang</h3>
+                    <div class="card mb-20">
+                        <h3>Keranjang Belanja</h3>
                         <div id="cartItems" class="cart-items">
                             <!-- Keranjang -->
                         </div>
                         <div class="cart-total">
-                            <h4>Total: Rp <span id="cartTotal">0</span></h4>
+                            <h4>Total Rp <span id="cartTotal">0</span></h4>
                         </div>
-                        <button class="btn btn-primary w-100 mt-10" onclick="prosesTransaksi()">Simpan Transaksi</button>
+                        <button class="btn btn-primary w-100 mt-15" onclick="prosesTransaksi()">Simpan Transaksi</button>
                     </div>
                 </div>
             </div>
@@ -47,58 +49,71 @@
 
         <!-- TAB PRODUK -->
         <div id="tab-produk" class="tab-content">
-            <h2>Manajemen Produk</h2>
-            <div class="card mt-10">
-                <form id="formProduk" class="row">
+            <div class="section-header">
+                <h2>Manajemen Produk</h2>
+            </div>
+            
+            <div class="card mb-20">
+                <form id="formProduk" class="row align-end">
                     <input type="hidden" id="prodId">
-                    <div class="col-3">
-                        <input type="text" id="prodName" placeholder="Nama Produk" required class="w-100">
+                    <div class="col-3 form-group">
+                        <label>Nama Produk</label>
+                        <input type="text" id="prodName" placeholder="Contoh: Buku Tulis" required class="w-100">
                     </div>
-                    <div class="col-3">
-                        <input type="number" id="prodPrice" placeholder="Harga" required class="w-100">
+                    <div class="col-3 form-group">
+                        <label>Harga (Rp)</label>
+                        <input type="number" id="prodPrice" placeholder="Contoh: 5000" required class="w-100">
                     </div>
-                    <div class="col-3">
-                        <input type="number" id="prodStock" placeholder="Stok" required class="w-100">
+                    <div class="col-3 form-group">
+                        <label>Stok Tersedia</label>
+                        <input type="number" id="prodStock" placeholder="Contoh: 100" required class="w-100">
                     </div>
-                    <div class="col-3">
-                        <button type="submit" class="btn btn-success w-100" id="btnSimpanProduk">Tambah Produk</button>
+                    <div class="col-3 form-group">
+                        <button type="submit" class="btn btn-primary w-100" id="btnSimpanProduk">Tambah Produk</button>
                     </div>
                 </form>
             </div>
-            <div class="card mt-10">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nama Produk</th>
-                            <th>Harga</th>
-                            <th>Stok</th>
-                            <th width="150">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableProdukBody">
-                        <!-- Tabel produk -->
-                    </tbody>
-                </table>
+            
+            <div class="card mb-20">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nama Produk</th>
+                                <th>Harga</th>
+                                <th>Stok</th>
+                                <th width="160" class="text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableProdukBody">
+                            <!-- Tabel produk -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
-        <!-- TAB RIWAYAT -->
+        <!-- TAB RIWAYAT (TRANSAKSI) -->
         <div id="tab-riwayat" class="tab-content">
-            <h2>Riwayat Transaksi</h2>
-            <div class="card mt-10">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID Transaksi</th>
-                            <th>Tanggal</th>
-                            <th>Item dibeli</th>
-                            <th>Total Harga</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableRiwayatBody">
-                        <!-- Tabel Riwayat -->
-                    </tbody>
-                </table>
+            <div class="section-header">
+                <h2>Riwayat Transaksi</h2>
+            </div>
+            <div class="card mb-20">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID Transaksi</th>
+                                <th>Tanggal & Waktu</th>
+                                <th>Detail Item</th>
+                                <th>Total Belanja</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableRiwayatBody">
+                            <!-- Tabel Riwayat -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
