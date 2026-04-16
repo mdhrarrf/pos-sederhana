@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": "1776310301100",
+      "name": "pizza4",
+      "price": 200004,
+      "stock": 14
+    }
+  ],
+  "transactions": [
+    {
+      "id": "TRX-1776310330786",
+      "date": "2026-04-16T03:32:10.786Z",
+      "items": [
+        {
+          "productId": "1776310301100",
+          "name": "pizza4",
+          "price": 200004,
+          "qty": 5,
+          "maxStock": 5
+        }
+      ],
+      "total": 1000020
+    },
+    {
+      "id": "TRX-1776310354387",
+      "date": "2026-04-16T03:32:34.387Z",
+      "items": [
+        {
+          "productId": "1776310301100",
+          "name": "pizza4",
+          "price": 200004,
+          "qty": 1,
+          "maxStock": 20
+        }
+      ],
+      "total": 200004
+    },
+    {
+      "id": "TRX-1776310421163",
+      "date": "2026-04-16T03:33:41.163Z",
+      "items": [
+        {
+          "productId": "1776310301100",
+          "name": "pizza4",
+          "price": 200004,
+          "qty": 5,
+          "maxStock": 19
+        }
+      ],
+      "total": 1000020
+    }
+  ]
+}

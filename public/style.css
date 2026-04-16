@@ -1,0 +1,75 @@
+:root {
+    --primary: #3498db;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --dark: #2c3e50;
+    --light: #ecf0f1;
+    --white: #ffffff;
+    --gray: #95a5a6;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body { background-color: #f4f6f8; color: var(--dark); }
+
+/* Utility */
+.w-100 { width: 100%; }
+.mt-10 { margin-top: 10px; }
+.text-danger { color: var(--danger); }
+.row { display: flex; flex-wrap: wrap; gap: 15px; }
+.col-8 { flex: 8; }
+.col-4 { flex: 4; }
+.col-3 { flex: 1; }
+
+.btn {
+    padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; color: var(--white); font-weight: bold;
+}
+.btn-primary { background-color: var(--primary); }
+.btn-success { background-color: var(--success); }
+.btn-danger { background-color: var(--danger); }
+.btn:hover { opacity: 0.9; }
+
+.card { background: var(--white); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+input { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+
+/* Login Page */
+.login-body { display: flex; justify-content: center; align-items: center; height: 100vh; }
+.login-container { background: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 300px; text-align: center; }
+.form-group { margin-bottom: 15px; text-align: left; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input { width: 100%; }
+
+/* Navbar */
+.navbar { background-color: var(--dark); color: var(--white); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { font-size: 1.5em; font-weight: bold; }
+.nav-btn { background: none; border: none; color: var(--white); padding: 8px 15px; cursor: pointer; font-size: 1em; border-radius: 5px; }
+.nav-btn.active { background-color: rgba(255,255,255,0.2); }
+.nav-btn:hover { background-color: rgba(255,255,255,0.1); }
+
+/* Layout */
+.container { padding: 20px; max-width: 1200px; margin: 0 auto; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Table */
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+
+/* Product Grid (Kasir) */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 15px; }
+.product-card { background: var(--light); padding: 15px; text-align: center; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: 0.2s; }
+.product-card:hover { border-color: var(--primary); }
+.product-card h4 { margin-bottom: 5px; }
+
+/* Cart */
+.cart-items { min-height: 200px; max-height: 400px; overflow-y: auto; margin-top: 15px; }
+.cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding: 10px 0; }
+.cart-item-info { flex: 1; }
+.cart-total { border-top: 2px solid var(--dark); margin-top: 15px; padding-top: 10px; text-align: right; }
+.qty-btn { background: var(--gray); border: none; color: white; padding: 2px 8px; cursor: pointer; border-radius: 3px;}
