@@ -4,7 +4,13 @@
       "id": "1776310301100",
       "name": "pizza4",
       "price": 200004,
-      "stock": 2
+      "stock": 1
+    },
+    {
+      "id": "1776319294523",
+      "name": "pizza",
+      "price": 12321,
+      "stock": 321321
     }
   ],
   "transactions": [
@@ -63,6 +69,20 @@
         }
       ],
       "total": 2400048
+    },
+    {
+      "id": "TRX-1776319298114",
+      "date": "2026-04-16T06:01:38.114Z",
+      "items": [
+        {
+          "productId": "1776310301100",
+          "name": "pizza4",
+          "price": 200004,
+          "qty": 1,
+          "maxStock": 2
+        }
+      ],
+      "total": 200004
     }
   ]
 }

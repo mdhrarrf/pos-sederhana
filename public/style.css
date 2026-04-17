@@ -1,12 +1,9 @@
 :root {
-    /* Tema Bersih: Biru, Putih & Abu-abu */
     --primary: #1976d2;
     --primary-hover: #1565c0;
     --warning: #f57c00;
-    /* Edit */
     --warning-hover: #ef6c00;
     --danger: #d32f2f;
-    /* Hapus */
     --danger-hover: #c62828;
     --dark: #37474f;
     --light-bg: #f5f7fa;
@@ -30,7 +27,6 @@ body {
     line-height: 1.5;
 }
 
-/* Utilities */
 .w-100 {
     width: 100%;
 }
@@ -55,7 +51,6 @@ body {
     text-align: center;
 }
 
-/* Wrapper Container */
 .container {
     padding: 20px;
     max-width: 1000px;
@@ -80,7 +75,6 @@ body {
     align-items: flex-end;
 }
 
-/* Default Desktop Widths */
 .col-8 {
     flex: 1 1 calc(66.666% - 20px);
 }
@@ -93,7 +87,6 @@ body {
     flex: 1 1 calc(25% - 20px);
 }
 
-/* Card sederhana dengan box/shadow ringan */
 .card {
     background: var(--white);
     padding: 20px;
@@ -108,7 +101,6 @@ body {
     font-size: 18px;
 }
 
-/* Buttons */
 .btn {
     padding: 10px 15px;
     border: none;
@@ -127,7 +119,6 @@ body {
     background-color: var(--primary-hover);
 }
 
-/* Edit (Yellow/Orange) */
 .btn-warning {
     background-color: var(--warning);
 }
@@ -136,7 +127,6 @@ body {
     background-color: var(--warning-hover);
 }
 
-/* Delete (Red) */
 .btn-danger {
     background-color: var(--danger);
 }
@@ -145,19 +135,16 @@ body {
     background-color: var(--danger-hover);
 }
 
-/* Tanpa ubah Javascript: Target btn-primary di dalam baris table sebagai Edit */
 #tableProdukBody .btn:first-child {
     background-color: var(--warning);
     margin-right: 5px;
     margin-bottom: 5px;
-    /* jaga-jaga kalau HP dibungkus */
 }
 
 #tableProdukBody .btn:first-child:hover {
     background-color: var(--warning-hover);
 }
 
-/* Form Groups */
 .form-group {
     margin-bottom: 15px;
 }
@@ -185,7 +172,6 @@ input:focus {
     background-color: var(--white);
 }
 
-/* Login Page */
 .login-body {
     display: flex;
     justify-content: center;
@@ -210,7 +196,6 @@ input:focus {
     color: var(--dark);
 }
 
-/* Navbar */
 .navbar {
     background-color: var(--dark);
     color: var(--white);
@@ -247,7 +232,6 @@ input:focus {
     color: var(--white);
 }
 
-/* Tab Switching */
 .tab-content {
     display: none;
 }
@@ -256,18 +240,15 @@ input:focus {
     display: block;
 }
 
-/* Tabel yang Rapi & Mendukung Scroll HP */
 .table-responsive {
     width: 100%;
     overflow-x: auto;
-    /* Kunci rahasia Horizontal Scroll di Layar HP */
     -webkit-overflow-scrolling: touch;
 }
 
 .table {
     width: 100%;
     min-width: 600px;
-    /* Minimal tidak hancur di layar kecil */
     border-collapse: collapse;
 }
 
@@ -292,7 +273,6 @@ input:focus {
     background-color: #f1f1f1;
 }
 
-/* Daftar Produk (Grid Murni) */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -332,7 +312,6 @@ input:focus {
     font-size: 13px;
 }
 
-/* Keranjang Belanja */
 .cart-items {
     min-height: 200px;
     max-height: 400px;
@@ -376,10 +355,8 @@ input:focus {
     background: #546e7a;
 }
 
-/* =========== Responsiveness: Mobile First Overrides =========== */
 @media (max-width: 768px) {
 
-    /* Navbar susun menurun & Penuh layar */
     .navbar {
         flex-direction: column;
         padding: 15px 20px;
@@ -395,14 +372,12 @@ input:focus {
         align-items: stretch;
     }
 
-    /* Layout grid stack vertikal di HP */
     .col-8,
     .col-4,
     .col-3 {
         flex: 1 1 100%;
     }
 
-    /* Supaya tombol tambah nyatu rapih ga aneh letaknya */
     form.row.align-end {
         align-items: stretch;
     }

@@ -1,10 +1,10 @@
 let products = [];
 let cart = [];
 
-// Format Rupiah
+// format rupiah
 const formatRp = (angka) => new Intl.NumberFormat('id-ID').format(angka);
 
-// Tab Navigation
+// navigasi tab
 function showTab(tabId) {
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
@@ -16,13 +16,13 @@ function showTab(tabId) {
     if (tabId === 'tab-riwayat') loadRiwayat();
 }
 
-// Fetch Produk
+// fetch produk dari server
 async function fetchProducts() {
     const res = await fetch('/api/products');
     products = await res.json();
 }
 
-// ================= TAB PRODUK =================
+// tab produk
 async function loadProducts() {
     await fetchProducts();
     const tbody = document.getElementById('tableProdukBody');
@@ -82,7 +82,7 @@ async function hapusProduct(id) {
     }
 }
 
-// ================= TAB KASIR =================
+// tab kasir
 async function loadKasir() {
     await fetchProducts();
     const grid = document.getElementById('posProductList');
@@ -169,14 +169,14 @@ async function prosesTransaksi() {
     }
 }
 
-// ================= TAB RIWAYAT =================
+// tab riwayat
 async function loadRiwayat() {
     const res = await fetch('/api/transactions');
     const transactions = await res.json();
     const tbody = document.getElementById('tableRiwayatBody');
     tbody.innerHTML = '';
 
-    // Reverse agar yang terbaru di atas
+    // reverse agar yang terbaru di atas
     transactions.reverse().forEach(t => {
         const d = new Date(t.date).toLocaleString('id-ID');
         const qtyS = t.items.map(i => `${i.qty} item`).join(', ');
@@ -192,5 +192,5 @@ async function loadRiwayat() {
     });
 }
 
-// Inisialisasi awal
+// initialisasi awal
 loadKasir();
